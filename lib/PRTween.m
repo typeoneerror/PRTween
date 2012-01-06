@@ -136,6 +136,15 @@
     [super dealloc];
 }
 
+- (void)removeAllObservers {
+    @try {
+        [self removeObserver:[PRTween sharedInstance] forKeyPath:@"period.lerpPeriod"];
+        [self removeObserver:[PRTween sharedInstance] forKeyPath:@"period.tweenedValue"];
+    }
+    @catch (NSException *exception) {
+    }
+}
+
 @end
 
 @implementation PRTweenCGPointLerp
@@ -649,7 +658,6 @@ complete:
         @try {
             [tweenOperation removeObserver:[PRTween sharedInstance] forKeyPath:@"period.tweenedValue"];
         } @catch (id exception) {
-            
         }
         tweenOperation = nil;
     }

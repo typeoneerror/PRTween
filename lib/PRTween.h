@@ -104,6 +104,8 @@ typedef void (^PRTweenCompleteBlock)();
 @property (nonatomic) SEL boundSetter;
 @property (nonatomic) BOOL override;
 
+- (void)removeAllObservers;
+
 @end
 
 @interface PRTweenCGPointLerp : NSObject
